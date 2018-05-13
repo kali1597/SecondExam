@@ -1,22 +1,20 @@
 module.exports = function (grunt) {
     
-    var option = grunt.option('config');
-    var con = grunt.file.readJSON('option')
-
-
-
+    var config = grunt.file.readJSON(grunt.option('config'||'config.json'));
 
     grunt.loadNpmTasks('grunt-contrib-Jasmine');
     
         grunt.initConfig({
           
-            JS: {
-              src: 'js/*.js',
-              dest: config.buildFolder
-            
-          }
-        });
-
+            jasmine: {
+                JS: {
+                  src: 'js/*.js',
+                  options: {
+                    specs: 'spec/*.spec.js'
+                  }
+                }
+              }
+            });
 
         grunt.registerTask('generateIndex', function(){
             grunt.file.copy('index.html', config.buildFolder+'/index.html',{ 
@@ -57,5 +55,8 @@ module.exports = function (grunt) {
           });      
       });
 
+      grunt.registerTask('build', ['genPg1','genPg2','generateIndex']);
     
-}    
+    
+    
+};   
