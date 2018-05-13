@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     
     var config = grunt.file.readJSON(grunt.option('config'||'config.json'));
 
-    grunt.loadNpmTasks('grunt-contrib-Jasmine');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     
         grunt.initConfig({
           
