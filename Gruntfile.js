@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                     return grunt.template.process(files,
                     {
                           data: {
-                            appName:config.appName
+                            appName: config.appName
                         }
                     });
                 }
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                   return grunt.template.process(files,
                   {
                         data: {
-                          appName:config.appName
+                          pageOneName: config.pageOne
                       }
                   });
               }
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                   return grunt.template.process(files,
                   {
                         data: {
-                          appName:config.appName
+                          pageTwoName: config.pageTwo
                       }
                   });
               }
