@@ -1,8 +1,9 @@
 module.exports = function (grunt) {
     
-    var config = grunt.file.readJSON(grunt.option('config'||'config.json'));
+    var config = grunt.file.readJSON(grunt.option('config')||'config.json');
 
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     
         grunt.initConfig({
           
@@ -35,7 +36,7 @@ module.exports = function (grunt) {
                   return grunt.template.process(files,
                   {
                         data: {
-                          pageOneName: config.pageOne
+                          pageOneName: config.pageOneName
                       }
                   });
               }
@@ -48,14 +49,15 @@ module.exports = function (grunt) {
                   return grunt.template.process(files,
                   {
                         data: {
-                          pageTwoName: config.pageTwo
+                          pageTwoName: config.pageTwoName
                       }
                   });
               }
           });      
       });
 
-      grunt.registerTask('build', ['genPg1','genPg2','generateIndex']);
+      grunt.registerTask('build', 
+                       ['genPg1','genPg2','generateIndex']);
     
     
     
